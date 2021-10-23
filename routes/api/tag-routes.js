@@ -10,7 +10,8 @@ router.get('/', async (req, res) => {
     const tagData = await Tag.findAll({
       include: [{model: Product}]
     });
-    res.status(200).json(tagData)
+    console.log(tagData)
+    res.status(200).json(tagData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -26,7 +27,7 @@ router.get('/:id', async (req, res) => {
     if(!tagData) {
       res.status(404).json({message: 'No such tag!'});
     }
-    res.status(200).json(productTagIdArr)
+    res.status(200).json(tagData)
   } catch (err) {
     res.status(500).json(err);
   }
